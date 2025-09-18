@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { race} from 'rxjs';
+import { Heroes } from '../heroes';
 
 @Component({
   selector: 'app-heroes-list',
@@ -8,9 +10,15 @@ import { Component } from '@angular/core';
 })
 export class HeroesListComponent {
 
-  heroes:any[]=[
+  listFilter:string='';
+  muestraImg:boolean=true;
+  showImage(){
+    this.muestraImg=!this.muestraImg;
+  }
+
+  heroes:Heroes[]=[
     {
-    "imagen":"https://dragonball-api.com/characters/goku_normal.webp",
+    imagen:"https://dragonball-api.com/characters/goku_normal.webp",
     nombre:"Goku",
     descripcion:"Kakaroto",
     raza:"Saiyan",
